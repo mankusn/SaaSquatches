@@ -23,6 +23,21 @@
        
        <%= link_to "Back", root_path %>
       <% end %>
+  <br>
 </div>
 
-
+  <h2>List of available classrooms</h2> 
+  <table id="classtable" class="table table-bordered">
+    <tr>
+     <th> Room Name </th>
+     <th> Capacity </th>
+    </tr>
+    <tbody>
+    <% @allRooms.each do |room| %>
+    <tr>
+     <td> <%= room.room_name %> </td>
+     <td> <%= room.Capacity %> </td>
+    </tr>
+    <% end %>
+    </tbody>
+  </table>
