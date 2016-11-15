@@ -5,6 +5,6 @@ class CreateRooms < ActiveRecord::Migration
 
       t.timestamps null: false
     end
-	add_foreign_key :rooms, :buildings
+	#add_foreign_key :rooms, :buildings
   end
 end

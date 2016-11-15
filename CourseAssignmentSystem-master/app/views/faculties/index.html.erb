@@ -1,0 +1,18 @@
+<div class="center jumbotron">
+    <h2>Edit Faculty Info</h2>
+    
+    <table class="table table-bordered">
+        <tr>
+          <th>Name</th>
+          <th>Delete</th>
+        </tr>
+        <% @faculties.each do |fac| %>
+            <tr>
+                <td><%= fac.faculty_name %></td>
+                <!-- <%@faculty = fac%> -->
+                <td><%= link_to 'Delete', faculty_path(fac.id), :method => :delete, :confirm => 'Are you sure?' %></td>
+                
+            </tr>
+        <% end %>
+    </table>
+</div>

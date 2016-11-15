@@ -10,7 +10,7 @@
    
    <p><%=f.label "Permission Level: "%>
    	<%= f.select :permission , options_for_select(@permissions.collect{|permission| permission},
-  	session[:permission] ), {prompt: "Please Select", hide_label: :true }, 
+  	"User" ), {prompt: "Please Select", hide_label: :true }, 
   	{id: 'sessionId' , class: "btn btn-default dropdown-toggle"} %> 
       <br></br>
       <%= f.submit "Submit", class: "btn btn-lg btn-primary"  %>

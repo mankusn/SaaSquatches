@@ -43,11 +43,11 @@
               <a class="navbar-brand topnav" href="https://howdy.tamu.edu/cp/home/displaylogin">Howdy</a>
             </div>
             <div class="nav navbar-nav navbar-right">
-	            <% if current_user %>
-	              <ul>
-	                <li><%= link_to "Log Out", logout_path, method: "delete" %></li>
-	              </ul>
-	            <% end %>
+              <% if current_user %>
+                <ul>
+                  <li><%= link_to "Log Out", logout_path, method: "delete" %></li>
+                </ul>
+              <% end %>
             </div>
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
@@ -74,88 +74,76 @@
                     <%= f.select :semester_id , options_for_select(@semester.collect { |semester| [semester.SemesterTitle, semester.id] },session[:semester_id] ), {prompt: "Please Select", hide_label: :true }, { :onchange => "this.form.submit()", id: 'sessionId' , class: "btn btn-default dropdown-toggle"} %>
                   <% end %>  
                   </p>
-				  
-                  <h3>Edit Faculty</h3>
+          
+                  <h3>Manage Faculty Info</h3>
                   
                   <hr class="intro-divider">
                   <ul class="list-inline intro-social-buttons">
-                  	
-                   <p>
-	                   <li>
-	                     <%= link_to "Add New Faculty", addfaculty_path, class: "btn btn-default btn-lg" %>
-	                   </li>
-	                   <li>
-	                     <%= link_to "Edit Faculty Preference", addpreference_path, class: "btn btn-default btn-lg" %>
-	                   </li>
-                   </p>
-                   <br />
-                   <p>
-	                   
-	            	   <li>
-	                     <%= link_to "Reset Faculty Account", resetuser_path, class: "btn btn-default btn-lg" %>
-	                   </li>
-	               </p>
-            	   <br>
-            	   <br>
-					
-            	  <h3>Edit Courses & Classrooms</h3>
-            	  <hr class="intro-divider">
+                    
+                  <p>
+                   <li><%= link_to "Add Faculty", addfaculty_path, class: "btn btn-default btn-lg" %></li>
+                   <li><%= link_to "Edit Faculty Info", faculties_path, class: "btn btn-default btn-lg" %></li>
+                   <li><%= link_to "Edit Faculty Preference", addpreference_path, class: "btn btn-default btn-lg" %></li>
+                   <li><%= link_to "Reset Faculty Account", resetuser_path, class: "btn btn-default btn-lg" %></li>
+                 </p>
+                 <br>
+                 <br>
+          
+                <h3>Edit Courses & Classrooms</h3>
+                <hr class="intro-divider">
                   <ul class="list-inline intro-social-buttons">
-                  	<p>
-	                   <li>
-	                     <%= link_to "Add New Course", addcourse_path, class: "btn btn-default btn-lg" %>
-	                   </li>
-	                   <li>
-	                     <%= link_to "Add New Classroom", addclassroom_path, class: "btn btn-default btn-lg" %>
-	                   </li>
-                    </p>
-                    <br />
-                 	<p>
-	                  
-	                  <li>
-	                  	<%= link_to "Add New Semester", addsemester_path, class: "btn btn-default btn-lg" %>
-	                  </li>
-                	</p>
+                    <p>
+                     <li>
+                       <%= link_to "Add New Course", addcourse_path, class: "btn btn-default btn-lg" %>
+                     </li>
+                     <li>
+                       <%= link_to "Add New Classroom", addclassroom_path, class: "btn btn-default btn-lg" %>
+                     </li>
+                    <li>
+                      <%= link_to "Add New Semester", addsemester_path, class: "btn btn-default btn-lg" %>
+                    </li>
+                  </p>
                 </p>
                 <br>
                 <h3>Make Assignments</h3>
                 <hr class="intro-divider">
                   <ul class="list-inline intro-social-buttons">
-                  	<p> 
-						<li>
-	                    	<%= link_to "Room Availability", class_index_path, class: "btn btn-default btn-lg" %>
-	                  	</li>
-		            	<li>
-							<%= link_to "Assign Faculty to Courses", faculty_courses_path, class: "btn btn-default btn-lg" %>
-	            	    </li>
-					</p>
-					<br />
-                 	<p>
-						<li>
-							<%= link_to "Schedule Course", course_assignments_path, class: "btn btn-default btn-lg" %>
-						</li>
-		            </p>
-				 <br>
-            	 <br>
-				<h3>View</h3>
-                <hr class="intro-divider">
-                  <ul class="list-inline intro-social-buttons">
-                  	<p>
-						 <li>
-						  	<%= link_to "Preference Summary", pref_summary_index_path, class: "btn btn-default btn-lg" %>
-						 </li>
-			             <li>
-			               <%= link_to "Calendar", events_path, 'data-no-turbolink' => true, class: "btn btn-default btn-lg" %>
-			             </li>
-					</p>
-					
+                    <p> 
+            <li>
+                        <%= link_to "Room Availability", class_index_path, class: "btn btn-default btn-lg" %>
+                      </li>
+                  <li>
+              <%= link_to "Assign Faculty to Courses", faculty_courses_path, class: "btn btn-default btn-lg" %>
+                    </li>
+            <li>
+              <%= link_to "Schedule Course", course_assignments_path, class: "btn btn-default btn-lg" %>
+            </li>
+                </p>
+         <br>
+               <br>
+        <h3>View</h3>
+          <hr class="intro-divider">
+            <ul class="list-inline intro-social-buttons">
+              <p>
+             <li>
+                <%= link_to "Preference Summary", pref_summary_index_path, class: "btn btn-default btn-lg" %>
+             </li>
+             <li>
+               <%= link_to "Conflict Checker", conflict_checker_index_path, class: "btn btn-default btn-lg" %>
+             </li>
+             <li>
+               <%= link_to "Calendar", events_path, 'data-no-turbolink' => true, class: "btn btn-default btn-lg" %>
+             </li>
+
+          </p>
+          
              
              <br />
              <hr class="intro-divider">
              <ul class="list-inline intro-social-buttons">
-	             <li>
-	               <%= link_to "Logout", logout_path, id: "lgt", method: "delete", class: "btn btn-default btn-lg", id: "logout_link" %>
-	             </li>
+               <li>
+                 <%= link_to "Logout", logout_path, id: "lgt", method: "delete", class: "btn btn-default btn-lg", id: "logout_link" %>
+               </li>
              
            </ul>
          </div>
