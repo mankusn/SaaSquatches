@@ -159,6 +159,9 @@ class CourseAssignmentsController < ApplicationController
 	@room_options = {}
 	@room_options["data"] = {}
 	course_size = Course.where(:id => params[:course_id]).select("course_size").take.course_size
+	if course_size == nil 
+		course_size = 0
+	end
 	rooms = Room.where("building_id = ? and \"Capacity\" >= ?",params[:building_id], course_size)
 	if rooms.length == 0
 		@room_options["data"][""] = ""

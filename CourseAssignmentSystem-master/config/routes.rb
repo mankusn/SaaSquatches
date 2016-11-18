@@ -1,11 +1,12 @@
 Rails.application.routes.draw do
 
   
+  get 'faculties/index'
+
   get 'conflict_checker/index'
   post 'conflict_checker/index' => 'conflict_checker#create'
   get 'pref_summary/index'
   get 'conflict_suggestion/index'
-  get "addfaculty" => 'home_page#addfaculty'
   get "addcourse" => 'home_page#addcourse'
   get "addsemester" => 'home_page#addsemester'
   get "createsemester" => 'home_page#createsemester'
@@ -20,11 +21,15 @@ Rails.application.routes.draw do
   get 'events/show'
   get "display_events" => 'events#prof_index'
   get "deleteevent" => 'events#deleteevent'
+  get 'number_preference/index'
   
-  
-  #root 'home_page#professorhome'
   root 'home_page#home'
-
+  
+  resources :faculties
+  get "addfaculty" => 'faculties#addfaculty'
+  get "faculties" => 'faculties#index'
+  
+  
   resources :pref_summary, :controller => :pref_summary
   get  "pref_summary/index"
   

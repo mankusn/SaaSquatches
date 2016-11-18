@@ -36,10 +36,32 @@
     
   </table>
   
+  
   <p>
     <%= f.submit "Submit", class: "btn btn-lg btn-primary" %>
   </p>
   
   <%= link_to "Back", root_path %>
  <% end %>
+ 
+  <br><br>
+
+  <%= form_for :class , method: :get, url: addcourse_path do |f| %>
+   <table class="table table-bordered">
+    <thead>
+      <tr>
+        <th>Course Name</th>
+        <th>Course Title</th>
+        <th>Course Size</th>
+      </tr>
+    </thead>
+    <% @data.each do |data| %>      
+  <tr>
+    <td><%= data.course_name %></td>  
+    <td><%= data.CourseTitle %></td>  
+    <td><%= data.course_size %></td> 
+  </tr>
+<% end %> 
+  </table>
+  <% end %>
 </div>

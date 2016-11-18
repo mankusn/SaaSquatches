@@ -4,6 +4,8 @@ class CreateFaculties < ActiveRecord::Migration
       t.string :faculty_name
       t.string :permission
       t.integer :preference
+      t.integer :bad_preference
+
       t.timestamps null: false
     end
   end

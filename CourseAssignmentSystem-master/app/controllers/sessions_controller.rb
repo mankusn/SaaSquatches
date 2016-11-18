@@ -23,7 +23,6 @@ end
       else
         redirect_to '/login'
         flash[:error] = 'Permission not granted. Contact Administrator'
-      
       end
     else
       flash[:error] = 'Email or Password not valid'
